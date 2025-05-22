@@ -1,0 +1,27 @@
+trigger:
+- master
+
+resources:
+  repositories:
+    - repository: devops
+      type: git
+      name: ab/devops
+
+extends:
+  template: ci.yml@devops
+  parameters:
+    config:
+      isBuild: true
+      isDeploy: No
+      name: "mp-back-common"
+      ns: "mp"
+    variablegroup: pypi
+    testresults:
+      path: '/app/tests/.'
+      format: 'JUnit'
+      files: '**/result.xml'
+    pypiresults:
+      path: /app/pkg_dist
+      repository: NEXUS_URL
+      username: NEXUS_LOGIN
+      password: NEXUS_PASS

@@ -1,0 +1,8 @@
+.dockerignore
+.env.example
+.helm
+.venv
+azure-pipelines.yml
+Dockerfile
+.git
+.gitignore
