@@ -6,10 +6,6 @@ authors = [
     {name = "Your Name",email = "you@example.com"}
 ]
 
-packages = [
-    { include = "mp_back_common", from = "src" }
-]
-
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
