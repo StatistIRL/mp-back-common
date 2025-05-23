@@ -1,8 +1,9 @@
 from contextvars import ContextVar
 
-from .dto import UserCredentials
 from fastapi import Request
 from starlette.middleware.base import BaseHTTPMiddleware
+
+from .dto import UserCredentials
 
 ClientIdContextVar: ContextVar[UserCredentials] = ContextVar("ClientIdContextVar")
 

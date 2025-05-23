@@ -1,9 +1,8 @@
+from typing import Any
+
 from pydantic import BaseModel, ConfigDict
 
-
-def snake_to_lower_camel(snake_str: str) -> str:
-    words = snake_str.split("_")
-    return words[0].lower() + "".join(word.capitalize() for word in words[1:])
+from ..core.utils import snake_to_lower_camel
 
 
 class BaseSchema(BaseModel):
@@ -16,3 +15,19 @@ class BaseSchema(BaseModel):
         populate_by_name=True,
         alias_generator=snake_to_lower_camel,
     )
+
+
+class APISuccessResponseSchema(BaseSchema):
+    data: Any
+    meta: Any
+
+
+class APIErrorSchema(BaseSchema):
+    status: int
+    name: str
+    message: str
+
+
+class APIErrorResponseSchema(BaseSchema):
+    data: None = None
+    error: APIErrorSchema

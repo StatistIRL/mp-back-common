@@ -1,18 +1,8 @@
-from typing import Optional, Protocol
+from typing import Protocol
 
-from api.schemas import BaseSchema
 from fastapi import status
 
-
-class APIErrorSchema(BaseSchema):
-    status: int
-    name: str
-    message: str
-
-
-class APIErrorResponseSchema(BaseSchema):
-    data: Optional[None] = None
-    error: APIErrorSchema
+from .schemas import APIErrorResponseSchema, APIErrorSchema
 
 
 class BaseHTTPErrorProtocol(Protocol):

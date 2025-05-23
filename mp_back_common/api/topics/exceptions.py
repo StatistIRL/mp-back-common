@@ -1,7 +1,6 @@
 from fastapi import status
 
-from ..exceptions import (APIErrorResponseSchema, APIErrorSchema,
-                            BaseHTTPError)
+from ..exceptions import APIErrorResponseSchema, APIErrorSchema, BaseHTTPError
 
 
 class CollectStartDateInFutureHTTPError(BaseHTTPError):

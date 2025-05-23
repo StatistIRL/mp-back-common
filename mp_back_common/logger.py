@@ -18,6 +18,7 @@ logging.basicConfig(
 def get_logger(name):
     return logging.getLogger(name)
 
+
 LOG_CONFIG = {
     "version": 1,
     "disable_existing_loggers": False,

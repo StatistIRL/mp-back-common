@@ -3,9 +3,10 @@ import itertools
 from typing import Iterable
 
 import aioinject
+from pydantic_settings import BaseSettings
+
 from ... import settings
 from ..di._types import Providers
-from pydantic_settings import BaseSettings
 
 
 class ContainerManager:

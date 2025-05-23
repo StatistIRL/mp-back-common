@@ -3,13 +3,13 @@ from typing import AsyncIterator
 
 import aioinject
 from aioinject.ext.fastapi import AioInjectMiddleware
-from .api.exceptions import BaseHTTPError, ServerHTTPError
 from fastapi import APIRouter, FastAPI, Request
 from fastapi.encoders import jsonable_encoder
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from starlette.types import Lifespan
 
+from .api.exceptions import BaseHTTPError, ServerHTTPError
 from .core.middlewares.authentication import ClientIDMiddleware
 from .logger import get_logger
 from .settings import ApplicationSettings
