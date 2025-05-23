@@ -1,3 +1,4 @@
+from calendar import c
 from typing import Any
 
 from pydantic import BaseModel, ConfigDict
@@ -16,6 +17,8 @@ class BaseSchema(BaseModel):
         alias_generator=snake_to_lower_camel,
     )
 
+class APIRequestSchema(BaseSchema):
+    pass
 
 class APISuccessResponseSchema(BaseSchema):
     data: Any
