@@ -2,16 +2,15 @@ import contextlib
 from typing import AsyncIterator
 
 from aioinject.ext.fastapi import AioInjectMiddleware
+from api.exceptions import BaseHTTPError
+from api.router import router
 from core.di.container import create_container
 from core.middlewares import ClientIDMiddleware
-from fastapi import FastAPI, Request
-from fastapi.encoders import jsonable_encoder
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
-from mp_back_common.settings import ApplicationSettings, get_settings
+
 from mp_back_common.logger import get_logger
-from api.exceptions import BaseHTTPError, ServerHTTPError
-from api.router import router
+from mp_back_common.settings import ApplicationSettings, get_settings
 
 logger = get_logger(__name__)
 application_settings: ApplicationSettings = get_settings(ApplicationSettings)
@@ -24,13 +23,14 @@ async def _lifespan(
     async with contextlib.aclosing(create_container()):
         yield
 
+
 def create_app() -> FastAPI:
     app = FastAPI(
         title="Messages Service",
         version="1.0.0",
         description="API для работы с сообщениями",
         docs_url=application_settings.swagger_path,
-        lifespan=_lifespan
+        lifespan=_lifespan,
     )
     app.include_router(router=router, prefix="/api")
 

@@ -1,5 +1,5 @@
 from abc import ABC
-from typing import Generic, Type, TypeVar
+from typing import Generic, TypeVar
 
 import aiohttp
 from core._types import UserCredentials
@@ -12,7 +12,12 @@ TClientSettings = TypeVar("TClientSettings", bound=BaseAPIClientSettings)
 
 
 class BaseAPIClient(ABC, Generic[TClientSettings]):
-    def __init__(self, api_settings: TClientSettings, session: aiohttp.ClientSession, user_credentials: UserCredentials):
+    def __init__(
+        self,
+        api_settings: TClientSettings,
+        session: aiohttp.ClientSession,
+        user_credentials: UserCredentials,
+    ):
         self._api_settings = api_settings
         self.__session = session
         self._user_credentials = user_credentials
@@ -26,7 +31,7 @@ class BaseAPIClient(ABC, Generic[TClientSettings]):
     ):
         url = f"{self._api_settings.base_url}{self._api_settings.api_version}{endpoint}"
         response = None
-        
+
         headers = kwargs.get("headers", {})
         headers["x-clientid"] = str(self._user_credentials.client_id)
         kwargs["headers"] = headers

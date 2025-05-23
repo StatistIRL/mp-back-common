@@ -1,8 +1,7 @@
 from typing import Optional, Protocol
 
-from fastapi import status
-
 from api.schemas import BaseSchema
+from fastapi import status
 
 
 class APIErrorSchema(BaseSchema):

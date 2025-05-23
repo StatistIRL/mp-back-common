@@ -7,8 +7,8 @@ class TopicsServiceAPIClient(BaseAPIClient[TopicServiceAPIClientSettings]):
         response = await self._base_request(
             method="GET",
             endpoint=f"/topics/{topic_id}",
-            success_status_codes=[200, 404]
+            success_status_codes=[200, 404],
         )
-        
+
         data = (await response.json()).get("data")
         return data
