@@ -50,7 +50,9 @@ class TopicReadSchema(api_schemas.BaseSchema):
     modify_date: datetime | None
 
     @field_validator("collect_start_date", mode="before")
-    def validate_and_convert_date(cls, value: date) -> str:
+    def validate_and_convert_date(cls, value: date | str) -> str:
+        if isinstance(value, str):
+            return value
         return value.strftime("%Y-%m-%d")
 
 class GetTopicByIdResponseSchema(api_schemas.APISuccessResponseSchema):
