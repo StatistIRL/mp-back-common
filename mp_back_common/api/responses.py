@@ -1,3 +1,3 @@
 from . import exceptions
 
-base_responses = [exceptions.ServerHTTPError()]
+base_responses = [exceptions.ServerHTTPError]

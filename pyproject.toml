@@ -17,7 +17,8 @@ dependencies = [
     "aioinject (>=0.38.1,<0.39.0)",
     "redis (>=6.1.0,<7.0.0)",
     "sqlalchemy (>=2.0.41,<3.0.0)",
-    "elasticsearch (==8.18.1)"
+    "elasticsearch (==8.18.1)",
+    "result (>=0.17.0,<0.18.0)"
 ]
 
 

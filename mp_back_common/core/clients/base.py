@@ -29,7 +29,7 @@ class BaseAPIClient(ABC, Generic[TClientSettings]):
         endpoint: str = "",
         success_status_codes: list[int] = [200],
         **kwargs,
-    ):
+    ) -> aiohttp.ClientResponse:
         url = f"{self._api_settings.base_url}{self._api_settings.api_version}{endpoint}"
         response = None
 

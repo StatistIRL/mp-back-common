@@ -1,9 +1,9 @@
-from typing import Sequence
-
 from .exceptions import BaseHTTPError
+from .responses import base_responses
 
 
-def get_responses(errors: Sequence[BaseHTTPError]) -> dict:
+def build_error_responses(errors: list[type[BaseHTTPError]]) -> dict:
+    errors += base_responses
     result = {}
     for error in errors:
         if error.status_code not in result:
