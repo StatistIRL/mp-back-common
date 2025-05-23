@@ -3,16 +3,16 @@ from typing import AsyncIterator
 
 import aioinject
 from aioinject.ext.fastapi import AioInjectMiddleware
-from api.exceptions import BaseHTTPError, ServerHTTPError
+from .api.exceptions import BaseHTTPError, ServerHTTPError
 from fastapi import APIRouter, FastAPI, Request
 from fastapi.encoders import jsonable_encoder
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from starlette.types import Lifespan
 
-from mp_back_common.core.middlewares.authentication import ClientIDMiddleware
-from mp_back_common.logger import get_logger
-from mp_back_common.settings import ApplicationSettings
+from .core.middlewares.authentication import ClientIDMiddleware
+from .logger import get_logger
+from .settings import ApplicationSettings
 
 logger = get_logger(__name__)
 

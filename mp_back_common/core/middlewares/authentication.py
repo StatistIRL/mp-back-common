@@ -1,6 +1,6 @@
 from contextvars import ContextVar
 
-from core.middlewares.dto import UserCredentials
+from .dto import UserCredentials
 from fastapi import Request
 from starlette.middleware.base import BaseHTTPMiddleware
 

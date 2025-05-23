@@ -2,7 +2,7 @@ import contextlib
 from typing import AsyncIterator
 
 from elasticsearch import AsyncElasticsearch
-from settings import ElasticSettings
+from ...settings import ElasticSettings
 
 
 @contextlib.asynccontextmanager

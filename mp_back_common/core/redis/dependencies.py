@@ -2,7 +2,7 @@ import contextlib
 from typing import AsyncIterator
 
 from redis.asyncio import Redis
-from settings import RedisSettings
+from ...settings import RedisSettings
 
 
 @contextlib.asynccontextmanager

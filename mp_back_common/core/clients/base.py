@@ -2,9 +2,9 @@ from abc import ABC
 from typing import Generic, TypeVar
 
 import aiohttp
-from core._types import UserCredentials
-from logger import get_logger
-from settings import BaseAPIClientSettings
+from ..middlewares.dto import UserCredentials
+from ...logger import get_logger
+from ...settings import BaseAPIClientSettings
 
 logger = get_logger(__name__)
 

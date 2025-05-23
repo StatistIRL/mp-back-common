@@ -1,5 +1,5 @@
-from core.clients.base import BaseAPIClient
-from settings import TopicServiceAPIClientSettings
+from .base import BaseAPIClient
+from ...settings import TopicServiceAPIClientSettings
 
 
 class TopicsServiceAPIClient(BaseAPIClient[TopicServiceAPIClientSettings]):
