@@ -8,7 +8,7 @@ def snake_to_lower_camel(snake_str: str) -> str:
     return words[0].lower() + "".join(word.capitalize() for word in words[1:])
 
 
-def get_pagiantion(total: int, page: int, page_size: int):
+def get_pagination(total: int, page: int, page_size: int):
     page_count = math.ceil(total / page_size)
     return {
         "total": total,
