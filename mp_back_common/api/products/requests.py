@@ -44,7 +44,7 @@ class ProductCreateRequestSchema(BaseSchema):
 # START UPDATE PRODUCT REQUEST
 
 
-class ProductUpdateSchema(BaseSchema):
+class ProductUpdateRequestSchema(BaseSchema):
     product_name: str
 
     @field_validator("product_name")
@@ -59,7 +59,7 @@ class ProductUpdateSchema(BaseSchema):
 # START DELETE PRODUCT REQUEST
 
 
-class ProductDeleteSchema(BaseSchema):
+class ProductDeleteRequestSchema(BaseSchema):
     topic_product_ids: list[str]
 
 
