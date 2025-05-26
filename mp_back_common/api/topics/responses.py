@@ -1,14 +1,16 @@
 from datetime import date, datetime
 
 from pydantic import field_validator
+
 from .. import schemas as api_schemas
 from . import exceptions as api_topics_excs
 
-
 # START CREATE TOPIC RESPONSE
+
 
 class TopicReadIdSchema(api_schemas.BaseSchema):
     topic_id: int
+
 
 class CreateTopicResponseSchema(api_schemas.APISuccessResponseSchema):
     data: TopicReadIdSchema
@@ -25,9 +27,11 @@ create_topic_error_classes = [
 
 # START GET TOPICS RESPONSE
 
+
 class TopicItemReadSchema(api_schemas.BaseSchema):
     topic_id: int
     topic_name: str
+
 
 class GetTopicsResponseSchema(api_schemas.APISuccessResponseSchema):
     data: list[TopicItemReadSchema]
@@ -39,6 +43,7 @@ get_topics_response_classes = []
 # END GET TOPICS RESPONSE
 
 # START GET TOPIC BY ID RESPONSE
+
 
 class TopicReadSchema(api_schemas.BaseSchema):
     topic_id: int
@@ -54,6 +59,7 @@ class TopicReadSchema(api_schemas.BaseSchema):
         if isinstance(value, str):
             return value
         return value.strftime("%Y-%m-%d")
+
 
 class GetTopicByIdResponseSchema(api_schemas.APISuccessResponseSchema):
     data: TopicReadSchema

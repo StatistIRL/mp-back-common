@@ -1,13 +1,14 @@
 from datetime import datetime, timezone
 from typing import Literal
 
-from ...core import enums
 from pydantic import Field, field_validator, model_validator
 
-from ...core import utils as core_utils
 from ...api import schemas as api_schemas
+from ...core import enums
+from ...core import utils as core_utils
 
 # START GET MESSAGES REQUEST
+
 
 class PaginationRequestSchema(api_schemas.APIRequestSchema):
     page: int = Field(gt=0)
@@ -28,8 +29,12 @@ class FilterRequestSchema(api_schemas.APIRequestSchema):
     date_from: datetime
     date_to: datetime
     search_query: str | None
-    message_type: list[core_utils.get_literal_type_from_enum(enums.MessageTypeEnum)] = []
-    content_type: list[core_utils.get_literal_type_from_enum(enums.ContentTypeEnum)] = []
+    message_type: list[
+        core_utils.get_literal_type_from_enum(enums.MessageTypeEnum)
+    ] = []
+    content_type: list[
+        core_utils.get_literal_type_from_enum(enums.ContentTypeEnum)
+    ] = []
 
     @model_validator(mode="after")
     def validate_dates(cls, values):
@@ -55,5 +60,6 @@ class GetMessagesByTopicIdRequestSchema(api_schemas.APIRequestSchema):
     pagination: PaginationRequestSchema
     sorting: SortingRequestSchema
     filter: FilterRequestSchema
+
 
 # END GET MESSAGES REQUEST

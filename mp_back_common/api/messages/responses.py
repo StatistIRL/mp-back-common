@@ -1,8 +1,11 @@
 from datetime import datetime
+
 from mp_back_common.api.topics import exceptions as api_topics_excs
+
 from .. import schemas as api_schemas
 
 # START GET MESSAGES RESPONSE
+
 
 class PaginationResponseSchema(api_schemas.BaseSchema):
     page: int
@@ -13,6 +16,7 @@ class PaginationResponseSchema(api_schemas.BaseSchema):
 
 class MetaSchema(api_schemas.BaseSchema):
     pagination: PaginationResponseSchema
+
 
 class MessagePlatformReadSchema(api_schemas.BaseSchema):
     id: str | None
