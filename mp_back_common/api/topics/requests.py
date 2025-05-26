@@ -39,7 +39,7 @@ class TopicCreateRequestSchema(BaseSchema):
 # START UPDATE TOPIC REQUEST
 
 
-class TopicUpdateSchema(BaseSchema):
+class TopicUpdateRequestSchema(BaseSchema):
     topic_name: str
 
     @field_validator("topic_name")
